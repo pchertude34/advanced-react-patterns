@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
+import * as types from './nameTypes';
 
-const initialState = {
+export const initialState = {
   name: '',
 };
 
@@ -9,8 +10,18 @@ const initialState = {
  * @param {*} state
  * @param {*} action
  */
-export default function (state = initialState, action) {
+export function nameReducer(state = initialState, action) {
   switch (action.type) {
+    case types.UPDATE_NAME:
+      return {
+        ...state,
+        name: action.name,
+      };
+    case types.CLEAR_NAME:
+      return {
+        ...state,
+        name: '',
+      };
     default:
       return state;
   }

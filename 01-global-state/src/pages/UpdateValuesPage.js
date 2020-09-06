@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import { useNameState, nameTypes } from '../state';
 
 export default function () {
-  const [name, setName] = useState('');
+  const { state, dispatch } = useNameState();
 
   function handleNameUpdate(event) {
     const updatedName = event.target.value;
-    setName(updatedName);
+    dispatch({ type: nameTypes.UPDATE_NAME, name: updatedName });
   }
 
-  function handleNameSave() {
-    console.log('name', name);
+  function handleNameClear() {
+    dispatch({ type: nameTypes.CLEAR_NAME });
   }
 
   function handleIncrementButtonClicked() {
@@ -24,14 +25,15 @@ export default function () {
     <div>
       <h1>Update Values</h1>
       <div>
-        <label htmlFor="name" style={{ marginRight: '10px' }}>
+        <label htmlFor="name" className="m-r">
           Name
         </label>
-        <input type="text" id="name" value={name} onChange={handleNameUpdate} />
-        <button onClick={handleNameSave}>Submit</button>
+        <input type="text" id="name" value={state.name} onChange={handleNameUpdate} />
+        <button onClick={handleNameClear}>Clear</button>
       </div>
       <div style={{ marginTop: '40px' }}>
-        <button style={{ marginRight: '10px' }} onClick={handleIncrementButtonClicked}>
+        <label className="m-r">Count</label>
+        <button className="m-r" onClick={handleIncrementButtonClicked}>
           Increment
         </button>
         <button onClick={handleDecrementButtonClicked}>Decrement</button>

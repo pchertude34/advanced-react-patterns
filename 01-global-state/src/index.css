@@ -6,11 +6,6 @@
   padding: 16px;
 }
 
-.name-input-container {
-  /* display: flex; */
-  /* width: 100%; */
-}
-
-.name-input-label {
+.m-r {
   margin-right: 10px;
 }
