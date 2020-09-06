@@ -1,0 +1,16 @@
+.app-container {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+    Verdana, sans-serif;
+  /* font-size: 24px; */
+  text-align: center;
+  padding: 16px;
+}
+
+.name-input-container {
+  /* display: flex; */
+  /* width: 100%; */
+}
+
+.name-input-label {
+  margin-right: 10px;
+}
