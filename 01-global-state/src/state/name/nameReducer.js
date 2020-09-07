@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import * as types from './nameTypes';
 
 export const initialState = {

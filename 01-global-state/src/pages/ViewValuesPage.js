@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNameState } from '../state';
+import { useNameState, useCountState } from '../state';
 
 export default function () {
-  const { state } = useNameState();
+  const { state: nameState } = useNameState();
+  const { state: countState } = useCountState();
 
   return (
     <div>
@@ -11,12 +12,13 @@ export default function () {
         <label className="m-r">
           <b>Name:</b>
         </label>
-        {state.name}
+        {nameState.name}
       </div>
       <div style={{ marginTop: '40px' }}>
         <label className="m-r">
           <b>Count:</b>
         </label>
+        {countState.count}
       </div>
     </div>
   );

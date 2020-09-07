@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import { useNameState, nameTypes } from '../state';
+import React from 'react';
+import { useNameState, useCountState, nameTypes, countTypes } from '../state';
 
 export default function () {
-  const { state, dispatch } = useNameState();
+  const { state: nameState, dispatch: nameDispatch } = useNameState();
+  const { dispatch: countDispatch } = useCountState();
 
   function handleNameUpdate(event) {
     const updatedName = event.target.value;
-    dispatch({ type: nameTypes.UPDATE_NAME, name: updatedName });
+    nameDispatch({ type: nameTypes.UPDATE_NAME, name: updatedName });
   }
 
   function handleNameClear() {
-    dispatch({ type: nameTypes.CLEAR_NAME });
+    nameDispatch({ type: nameTypes.CLEAR_NAME });
   }
 
   function handleIncrementButtonClicked() {
-    console.log('increment');
+    countDispatch({ type: countTypes.INCREMENT_COUNT });
   }
 
   function handleDecrementButtonClicked() {
-    console.log('decrement');
+    countDispatch({ type: countTypes.DECREMENT_COUNT });
   }
 
   return (
@@ -28,7 +29,7 @@ export default function () {
         <label htmlFor="name" className="m-r">
           Name
         </label>
-        <input type="text" id="name" value={state.name} onChange={handleNameUpdate} />
+        <input type="text" id="name" value={nameState.name} onChange={handleNameUpdate} />
         <button onClick={handleNameClear}>Clear</button>
       </div>
       <div style={{ marginTop: '40px' }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { NameProvider } from './state';
+import GlobalState from './state';
 import UpdateValuesPage from './pages/UpdateValuesPage';
 import ViewValuesPage from './pages/ViewValuesPage';
 
@@ -24,8 +24,8 @@ function App() {
 
 export default function () {
   return (
-    <NameProvider>
+    <GlobalState>
       <App />
-    </NameProvider>
+    </GlobalState>
   );
 }
