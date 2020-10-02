@@ -4,11 +4,6 @@ export const initialState = {
   name: '',
 };
 
-/**
- *
- * @param {*} state
- * @param {*} action
- */
 export function nameReducer(state = initialState, action) {
   switch (action.type) {
     case types.UPDATE_NAME:

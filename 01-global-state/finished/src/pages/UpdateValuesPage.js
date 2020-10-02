@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNameState, useCountState, nameTypes, countTypes } from '../state';
+import { useCountState, countTypes } from '../state/count';
+import { useNameState, nameTypes } from '../state/name';
 
 export default function () {
   const { state: nameState, dispatch: nameDispatch } = useNameState();

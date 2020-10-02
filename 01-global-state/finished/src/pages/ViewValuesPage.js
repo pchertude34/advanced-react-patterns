@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNameState, useCountState } from '../state';
+import { useCountState } from '../state/count';
+import { useNameState } from '../state/name';
 
 export default function () {
   const { state: nameState } = useNameState();
