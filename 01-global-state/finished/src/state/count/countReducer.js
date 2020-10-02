@@ -4,7 +4,7 @@ export const initialState = {
   count: 0,
 };
 
-export function countReducer(state = initialState, action) {
+export function countReducer(state, action) {
   switch (action.type) {
     case types.INCREMENT_COUNT:
       return {
